@@ -1,10 +1,15 @@
-project "GLFW"
+workspace "GLFW"
+    configurations { "Debug", "Release" }
+
+	outputdir = "%{cfg.buildcfg}-%{cfg.system}"
+
+project "glfw"
 	kind "StaticLib"
 	language "C"
 	staticruntime "off"
 	warnings "off"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	targetdir ("lib")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
